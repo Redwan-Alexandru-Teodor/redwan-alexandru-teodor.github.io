@@ -101,7 +101,7 @@ export function SiteFooter() {
             aria-modal="true"
             aria-labelledby="modal-legal-title"
             onClick={(e) => e.stopPropagation()}
-            className="w-full max-w-2xl rounded-2xl border bg-card p-6 shadow-2xl sm:p-7 text-card-foreground flex flex-col max-h-[85vh]"
+            className="w-full max-w-2xl rounded-2xl border bg-card dark:border-primary/60 p-6 shadow-2xl sm:p-7 text-card-foreground flex flex-col max-h-[85vh]"
           >
             {/* Cabecera */}
             <div className="flex items-center justify-between border-b pb-3 mb-4 shrink-0">
@@ -193,7 +193,7 @@ export function SiteFooter() {
             aria-modal="true"
             aria-labelledby="modal-docs-title"
             onClick={(e) => e.stopPropagation()}
-            className="w-full max-w-4xl rounded-2xl border bg-card p-4 sm:p-6 shadow-2xl text-card-foreground flex flex-col h-[85dvh] sm:h-[90dvh]"
+            className="w-full max-w-4xl rounded-2xl border bg-card dark:border-primary/60 p-4 sm:p-6 shadow-2xl text-card-foreground flex flex-col h-[85dvh] sm:h-[90dvh]"
           >
             {/* Cabecera */}
             <div className="flex items-center justify-between border-b pb-3 mb-4 shrink-0">

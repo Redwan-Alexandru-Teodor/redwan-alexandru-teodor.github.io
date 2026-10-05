@@ -44,7 +44,7 @@ function renderMarkdown(md: string): React.ReactNode[] {
       if (p.startsWith('**') && p.endsWith('**'))
         return <strong key={idx}>{p.slice(2, -2)}</strong>
       if (p.startsWith('`') && p.endsWith('`'))
-        return <code key={idx} className="rounded-sm bg-slate-100 px-1.5 py-0.5 font-mono text-[0.85em] text-slate-800">{p.slice(1, -1)}</code>
+        return <code key={idx} className="rounded-sm bg-muted px-1.5 py-0.5 font-mono text-[0.85em] text-foreground">{p.slice(1, -1)}</code>
       return p
     })
   }
@@ -58,7 +58,7 @@ function renderMarkdown(md: string): React.ReactNode[] {
       while (i < lines.length && !lines[i].startsWith('```')) { code.push(lines[i]); i++ }
       i++
       nodes.push(
-        <pre key={`code-${i}`} className="my-4 overflow-x-auto border border-slate-200 bg-slate-50 p-4 font-mono text-[13px] leading-6 text-slate-800">
+        <pre key={`code-${i}`} className="my-4 overflow-x-auto border border-border bg-muted p-4 font-mono text-[13px] leading-6 text-foreground">
           <code>{code.join('\n')}</code>
         </pre>
       )
@@ -66,11 +66,11 @@ function renderMarkdown(md: string): React.ReactNode[] {
     }
 
     if (line.startsWith('## ')) {
-      nodes.push(<h2 key={i} className="mb-4 mt-9 border-b border-slate-200 pb-2 text-xl font-semibold text-slate-900">{line.slice(3)}</h2>)
+      nodes.push(<h2 key={i} className="mb-4 mt-9 border-b border-border pb-2 text-xl font-semibold text-foreground">{line.slice(3)}</h2>)
       i++; continue
     }
     if (line.startsWith('### ')) {
-      nodes.push(<h3 key={i} className="mb-2 mt-6 text-lg font-semibold text-slate-900">{line.slice(4)}</h3>)
+      nodes.push(<h3 key={i} className="mb-2 mt-6 text-lg font-semibold text-foreground">{line.slice(4)}</h3>)
       i++; continue
     }
 
@@ -85,15 +85,15 @@ function renderMarkdown(md: string): React.ReactNode[] {
             <thead>
               <tr>
                 {celdas(rows[0]).map((cell, ci) => (
-                  <th key={ci} className="border border-slate-300 bg-slate-50 px-4 py-2 text-left font-semibold text-slate-900">{cell}</th>
+                  <th key={ci} className="border border-border bg-muted px-4 py-2 text-left font-semibold text-foreground">{cell}</th>
                 ))}
               </tr>
             </thead>
             <tbody>
               {rows.slice(1).map((row, ri) => (
-                <tr key={ri} className={ri % 2 === 1 ? 'bg-slate-50/70' : ''}>
+                <tr key={ri} className={ri % 2 === 1 ? 'bg-muted/50' : ''}>
                   {celdas(row).map((cell, ci) => (
-                    <td key={ci} className="border border-slate-300 px-4 py-2 text-slate-700">{parseInline(cell)}</td>
+                    <td key={ci} className="border border-border px-4 py-2 text-foreground/85">{parseInline(cell)}</td>
                   ))}
                 </tr>
               ))}
@@ -110,7 +110,7 @@ function renderMarkdown(md: string): React.ReactNode[] {
       nodes.push(
         <ul key={`ul-${i}`} className="my-4 space-y-2 pl-2">
           {items.map((item, ii) => (
-            <li key={ii} className="flex items-start gap-3 text-slate-700">
+            <li key={ii} className="flex items-start gap-3 text-foreground/85">
               <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" aria-hidden="true" />
               <span>{parseInline(item)}</span>
             </li>
@@ -126,7 +126,7 @@ function renderMarkdown(md: string): React.ReactNode[] {
       nodes.push(
         <ol key={`ol-${i}`} className="my-4 space-y-2 pl-6 list-decimal marker:text-primary">
           {items.map((item, ii) => (
-            <li key={ii} className="pl-1 text-slate-700">{parseInline(item)}</li>
+            <li key={ii} className="pl-1 text-foreground/85">{parseInline(item)}</li>
           ))}
         </ol>
       )
@@ -135,7 +135,7 @@ function renderMarkdown(md: string): React.ReactNode[] {
 
     if (line.trim() === '') { i++; continue }
 
-    nodes.push(<p key={i} className="my-3 leading-7 text-slate-700">{parseInline(line)}</p>)
+    nodes.push(<p key={i} className="my-3 leading-7 text-foreground/85">{parseInline(line)}</p>)
     i++
   }
 
@@ -148,14 +148,14 @@ function renderMarkdown(md: string): React.ReactNode[] {
 function BotonCerrar({ onClick, label = 'Cerrar' }: { onClick: () => void; label?: string }) {
   return (
     <button type="button" onClick={onClick} aria-label={label} title={label}
-      className="flex h-9 w-9 shrink-0 cursor-pointer items-center justify-center border border-slate-300 bg-white text-slate-700 transition hover:bg-slate-100 hover:text-slate-900">
+      className="flex h-9 w-9 shrink-0 cursor-pointer items-center justify-center border border-border bg-card text-foreground/85 transition hover:bg-muted hover:text-foreground">
       <X className="h-4 w-4" />
     </button>
   )
 }
 
 const BOTON_FLECHA =
-  'absolute top-1/2 z-10 flex h-10 w-10 -translate-y-1/2 cursor-pointer items-center justify-center border border-slate-300 bg-white/95 text-slate-800 shadow-sm transition hover:bg-white'
+  'absolute top-1/2 z-10 flex h-10 w-10 -translate-y-1/2 cursor-pointer items-center justify-center border border-border bg-card/95 text-foreground shadow-sm transition hover:bg-card'
 
 // ─────────────────────────────────────────────────────────────────────────────
 //  Visor de fotos
@@ -259,7 +259,7 @@ function Visor({
     else empezarGesto()
   }
 
-  const BTN = 'flex h-9 w-9 shrink-0 cursor-pointer items-center justify-center border border-slate-300 bg-white text-slate-700 transition hover:bg-slate-100 hover:text-slate-900 disabled:cursor-not-allowed disabled:opacity-40'
+  const BTN = 'flex h-9 w-9 shrink-0 cursor-pointer items-center justify-center border border-border bg-card text-foreground/85 transition hover:bg-muted hover:text-foreground disabled:cursor-not-allowed disabled:opacity-40'
 
   return (
     <div
@@ -270,11 +270,11 @@ function Visor({
         role="dialog"
         aria-modal="true"
         aria-label={`${titulo} — imagen ${indice + 1} de ${total}`}
-        className="flex max-h-full w-full max-w-5xl flex-col overflow-hidden bg-white shadow-2xl animate-in fade-in zoom-in-95 duration-200"
+        className="flex max-h-full w-full max-w-5xl flex-col overflow-hidden border border-border bg-card text-card-foreground shadow-2xl dark:border-primary/60 animate-in fade-in zoom-in-95 duration-200"
         onClick={e => e.stopPropagation()}
       >
-        <div className="flex shrink-0 items-center justify-between gap-3 border-b border-slate-200 bg-white py-2.5 pl-4 pr-3 sm:pl-5">
-          <span className="truncate text-xs font-semibold uppercase tracking-wider text-slate-500">
+        <div className="flex shrink-0 items-center justify-between gap-3 border-b border-border bg-card py-2.5 pl-4 pr-3 sm:pl-5">
+          <span className="truncate text-xs font-semibold uppercase tracking-wider text-muted-foreground">
             {titulo}{total > 1 && ` · ${indice + 1} / ${total}`}
           </span>
           <BotonCerrar onClick={onCerrar} label="Cerrar imagen" />
@@ -306,7 +306,7 @@ function Visor({
         </div>
 
         {/* Barra de zoom */}
-        <div className="flex shrink-0 items-center gap-2 border-t border-slate-200 bg-white px-3 py-2.5 sm:gap-3 sm:px-5">
+        <div className="flex shrink-0 items-center gap-2 border-t border-border bg-card px-3 py-2.5 sm:gap-3 sm:px-5">
           <button type="button" className={BTN} onClick={() => aplicarZoom(zoom - ZOOM_PASO)} disabled={zoom <= ZOOM_MIN} aria-label="Alejar" title="Alejar (-)">
             <ZoomOut className="h-4 w-4" />
           </button>
@@ -321,7 +321,7 @@ function Visor({
             <ZoomIn className="h-4 w-4" />
           </button>
           <button type="button" onClick={reiniciar} aria-label="Restablecer zoom" title="Restablecer (0)"
-            className="h-9 min-w-[3.25rem] shrink-0 cursor-pointer border border-slate-300 bg-white px-2 text-xs font-semibold tabular-nums text-slate-700 transition hover:bg-slate-100">
+            className="h-9 min-w-[3.25rem] shrink-0 cursor-pointer border border-border bg-card px-2 text-xs font-semibold tabular-nums text-foreground/85 transition hover:bg-muted">
             {Math.round(zoom * 100)}%
           </button>
         </div>
@@ -371,12 +371,12 @@ function Galeria({ portada, galeria, titulo }: { portada: string; galeria: strin
             className="object-contain" priority={actual === 0} />
         </div>
         <button type="button" onClick={() => setCompleta(true)} aria-label="Ampliar imagen" title="Ampliar imagen"
-          className="absolute bottom-3 right-3 z-10 flex h-9 w-9 cursor-pointer items-center justify-center border border-slate-300 bg-white/95 text-slate-800 shadow-sm transition hover:bg-white">
+          className="absolute bottom-3 right-3 z-10 flex h-9 w-9 cursor-pointer items-center justify-center border border-border bg-card/95 text-foreground shadow-sm transition hover:bg-card">
           <Maximize2 className="h-4 w-4" aria-hidden="true" />
         </button>
         {fotos.length > 1 && (
           <>
-            <span className="pointer-events-none absolute bottom-3 left-3 z-10 border border-slate-300 bg-white/95 px-2.5 py-1.5 text-xs font-semibold text-slate-800 shadow-sm" aria-live="polite">
+            <span className="pointer-events-none absolute bottom-3 left-3 z-10 border border-border bg-card/95 px-2.5 py-1.5 text-xs font-semibold text-foreground shadow-sm" aria-live="polite">
               {actual + 1} / {fotos.length}
             </span>
             <button type="button" onClick={anterior} aria-label="Foto anterior" className={cn(BOTON_FLECHA, 'left-3')}>
@@ -389,7 +389,7 @@ function Galeria({ portada, galeria, titulo }: { portada: string; galeria: strin
         )}
       </div>
       {fotos.length > 1 && (
-        <div className="flex gap-2 overflow-x-auto border-b border-slate-200 bg-slate-50 px-4 py-3">
+        <div className="flex gap-2 overflow-x-auto border-b border-border bg-muted px-4 py-3">
           {fotos.map((foto, idx) => (
             <button key={idx} type="button" onClick={() => setActual(idx)} aria-label={`Miniatura ${idx + 1}`}
               className={cn('relative h-12 w-20 shrink-0 cursor-pointer overflow-hidden border-2 transition sm:h-14 sm:w-24',
@@ -428,11 +428,11 @@ function ProyectoModal({ proyecto, onClose }: { proyecto: ProyectoData; onClose:
         role="dialog"
         aria-modal="true"
         aria-labelledby="modal-titulo"
-        className="relative flex h-full max-h-[100dvh] w-full max-w-3xl flex-col overflow-hidden bg-white shadow-2xl animate-in fade-in zoom-in-95 duration-200 sm:h-auto sm:max-h-[92dvh]"
+        className="relative flex h-full max-h-[100dvh] w-full max-w-3xl flex-col overflow-hidden border border-border bg-card text-card-foreground shadow-2xl dark:border-primary/60 animate-in fade-in zoom-in-95 duration-200 sm:h-auto sm:max-h-[92dvh]"
         onClick={e => e.stopPropagation()}
       >
-        <div className="flex shrink-0 items-center justify-between border-b border-slate-200 bg-white py-2.5 pl-5 pr-3 sm:pl-8">
-          <span className="text-xs font-semibold uppercase tracking-wider text-slate-500">Proyecto</span>
+        <div className="flex shrink-0 items-center justify-between border-b border-border bg-card py-2.5 pl-5 pr-3 sm:pl-8">
+          <span className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Proyecto</span>
           <BotonCerrar onClick={onClose} />
         </div>
 
@@ -440,13 +440,13 @@ function ProyectoModal({ proyecto, onClose }: { proyecto: ProyectoData; onClose:
           <Galeria portada={proyecto.portada} galeria={proyecto.galeria} titulo={proyecto.titulo} />
 
           <div className="px-5 pt-6 sm:px-8">
-            <h1 id="modal-titulo" className="text-2xl font-semibold leading-snug text-slate-900 sm:text-3xl">
+            <h1 id="modal-titulo" className="text-2xl font-semibold leading-snug text-foreground sm:text-3xl">
               {proyecto.titulo}
             </h1>
-            <p className="mt-2 leading-7 text-slate-600">{proyecto.subtitulo}</p>
+            <p className="mt-2 leading-7 text-muted-foreground">{proyecto.subtitulo}</p>
             <ul className="mt-4 flex flex-wrap gap-2" aria-label="Tecnologías">
               {proyecto.tecnologias.map(tech => (
-                <li key={tech} className="border border-slate-300 bg-slate-100 px-2.5 py-1 text-xs font-semibold text-slate-800">
+                <li key={tech} className="border border-border bg-muted px-2.5 py-1 text-xs font-semibold text-foreground">
                   {tech}
                 </li>
               ))}
@@ -454,11 +454,11 @@ function ProyectoModal({ proyecto, onClose }: { proyecto: ProyectoData; onClose:
           </div>
 
           <div role="tablist" aria-label="Secciones del proyecto"
-            className="sticky top-0 z-10 mt-6 flex overflow-x-auto border-b border-slate-300 bg-white px-5 sm:px-8">
+            className="sticky top-0 z-10 mt-6 flex overflow-x-auto border-b border-border bg-card px-5 sm:px-8">
             {secciones.map((sec, idx) => (
               <button key={sec.titulo} type="button" role="tab" aria-selected={idx === tab} onClick={() => setTab(idx)}
                 className={cn('-mb-px shrink-0 cursor-pointer border-b-2 px-4 py-3 text-sm font-semibold transition',
-                  idx === tab ? 'border-primary text-primary' : 'border-transparent text-slate-500 hover:text-slate-900')}>
+                  idx === tab ? 'border-primary text-primary' : 'border-transparent text-muted-foreground hover:text-foreground')}>
                 {sec.titulo}
               </button>
             ))}
@@ -470,9 +470,9 @@ function ProyectoModal({ proyecto, onClose }: { proyecto: ProyectoData; onClose:
         </div>
 
         {proyecto.github && (
-          <div className="shrink-0 border-t border-slate-200 bg-white px-5 py-4 sm:px-8">
+          <div className="shrink-0 border-t border-border bg-card px-5 py-4 sm:px-8">
             <a href={proyecto.github} target="_blank" rel="noopener noreferrer"
-              className="flex items-center justify-center gap-2 border border-slate-300 bg-white py-3 text-sm font-semibold text-slate-900 transition hover:bg-slate-50">
+              className="flex items-center justify-center gap-2 border border-border bg-card py-3 text-sm font-semibold text-foreground transition hover:bg-muted">
               <GithubIcon aria-hidden="true" />
               Ver en GitHub
             </a>
@@ -511,9 +511,9 @@ export function Proyectos() {
                   type="button"
                   onClick={() => setSeleccionado(proyecto)}
                   aria-haspopup="dialog"
-                  className="group w-full cursor-pointer overflow-hidden rounded-2xl border border-slate-200 bg-white text-left shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+                  className="group w-full cursor-pointer overflow-hidden rounded-2xl border border-border bg-card text-left text-card-foreground shadow-sm dark:border-primary/40 dark:hover:border-primary/70 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
                 >
-                  <div className="relative h-64 w-full overflow-hidden bg-slate-100">
+                  <div className="relative h-64 w-full overflow-hidden bg-muted">
                     <Image
                       src={asset(proyecto.portada)}
                       alt={proyecto.titulo}
@@ -523,7 +523,7 @@ export function Proyectos() {
                     />
                   </div>
                   <div className="flex items-center justify-between px-6 py-5">
-                    <span className="text-lg font-semibold leading-snug text-slate-900">{proyecto.titulo}</span>
+                    <span className="text-lg font-semibold leading-snug text-foreground">{proyecto.titulo}</span>
                     <span className="ml-3 shrink-0 text-xs font-medium text-primary sm:opacity-0 sm:transition-opacity sm:group-hover:opacity-100">
                       Ver más →
                     </span>

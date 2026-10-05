@@ -48,7 +48,7 @@ export function Process() {
         </ol>
 
         {/* Por qué es gratis: explicado como un intercambio, no como una oferta barata */}
-        <div className="mx-auto mt-12 max-w-4xl rounded-2xl bg-ink p-6 text-ink-foreground sm:p-8">
+        <div className="mx-auto mt-12 max-w-4xl rounded-2xl border border-transparent bg-ink p-6 text-ink-foreground dark:border-primary/60 sm:p-8">
           <h3 className="text-xl font-semibold tracking-tight">¿Por qué es gratis?</h3>
           <p className="mt-3 text-pretty leading-relaxed text-ink-foreground/80">
             Estoy construyendo mi portafolio profesional. Tú consigues resolver tu problema técnico

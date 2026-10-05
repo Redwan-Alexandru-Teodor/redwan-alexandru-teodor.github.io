@@ -41,7 +41,7 @@ export function MailModal({ open, onClose, origen = 'GitHub Pages' }: MailModalP
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4 backdrop-blur-xs animate-in fade-in duration-200" onClick={onClose}>
-      <div role="dialog" aria-modal="true" aria-labelledby="mail-modal-title" onClick={e => e.stopPropagation()} className="w-full max-w-md rounded-2xl border bg-card p-6 shadow-xl sm:p-7 text-card-foreground">
+      <div role="dialog" aria-modal="true" aria-labelledby="mail-modal-title" onClick={e => e.stopPropagation()} className="w-full max-w-md rounded-2xl border bg-card p-6 shadow-xl dark:border-primary/60 sm:p-7 text-card-foreground">
         <div className="flex items-center gap-3 mb-4">
           <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
             <svg

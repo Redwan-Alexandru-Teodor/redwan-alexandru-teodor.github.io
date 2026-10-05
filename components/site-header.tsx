@@ -1,11 +1,12 @@
 'use client'
 
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { buttonVariants } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
 import { Menu, Moon, Sun, X } from 'lucide-react'
 import { MailModal } from '@/components/mail-modal'
 import { useActiveSection } from '@/lib/use-active-section'
+import { useTheme } from '@/lib/use-theme'
 // Icono de LinkedIn como SVG inline (lucide-react@1.17.0 no incluye Linkedin)
 function LinkedinIcon({ className }: { className?: string }) {
   return (
@@ -34,29 +35,15 @@ const ENLACES = [
 const SECCIONES_VIGILADAS = [...ENLACES.map(e => e.href), 'contacto']
 
 function ThemeToggle() {
-  const [dark, setDark] = useState(false)
-
-  useEffect(() => {
-    const stored = localStorage.getItem('theme')
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
-    const isDark = stored === 'dark' || (!stored && prefersDark)
-    setDark(isDark)
-    document.documentElement.classList.toggle('dark', isDark)
-  }, [])
-
-  const toggle = () => {
-    const next = !dark
-    setDark(next)
-    document.documentElement.classList.toggle('dark', next)
-    localStorage.setItem('theme', next ? 'dark' : 'light')
-  }
+  const { oscuro: dark, alternar: toggle } = useTheme()
 
   return (
     <button
       type="button"
       onClick={toggle}
       aria-label={dark ? 'Cambiar a modo claro' : 'Cambiar a modo oscuro'}
-      className="inline-flex items-center justify-center rounded-lg p-2 text-ink-foreground/80 hover:bg-white/10 hover:text-ink-foreground transition-colors focus:outline-none"
+      aria-pressed={dark}
+      className="inline-flex cursor-pointer items-center justify-center rounded-lg p-2 text-ink-foreground/80 hover:bg-white/10 hover:text-ink-foreground transition-colors focus-visible:outline-2 focus-visible:outline-primary"
     >
       {dark ? <Sun className="size-5" aria-hidden="true" /> : <Moon className="size-5" aria-hidden="true" />}
     </button>

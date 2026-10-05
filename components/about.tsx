@@ -65,7 +65,7 @@ export function About() {
               </div>
             </div>
           ))}
-          <div className="rounded-xl bg-ink p-6 text-ink-foreground">
+          <div className="rounded-xl border border-transparent bg-ink p-6 text-ink-foreground dark:border-primary/60">
             <p className="text-sm text-ink-foreground/70">Compromiso</p>
             <p className="mt-1 text-pretty font-medium leading-relaxed">
               Respuesta ágil, propuesta transparente y atención presencial o remota.

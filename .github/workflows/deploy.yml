@@ -45,7 +45,7 @@ jobs:
           NEXT_PUBLIC_BASE_PATH: ${{ steps.pages.outputs.base_path }}
           # Variable de repositorio (Settings → Secrets and variables → Actions → Variables).
           # Así el correo no aparece escrito en el código del repo público.
-          NEXT_PUBLIC_CONTACT_EMAIL: ${{ vars.CONTACT_EMAIL }}
+          NEXT_PUBLIC_CONTACT_EMAIL: ${{ vars.CONTACT_EMAIL || secrets.CONTACT_EMAIL }}
 
       - uses: actions/upload-pages-artifact@v3
         with:
