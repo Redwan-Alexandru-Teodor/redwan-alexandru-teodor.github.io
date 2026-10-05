@@ -2,8 +2,8 @@ import { Clock, MapPin, MessageSquare } from 'lucide-react'
 import { ContactForm } from '@/components/contact-form'
 
 const details = [
-  { icon: MapPin, title: 'Zona de servicio', value: 'Presencial en Sevilla y alrededores · asistencia remota desde cualquier lugar' },
-  { icon: Clock, title: 'Tiempo de respuesta', value: 'En menos de 24 horas laborables' },
+  { icon: MapPin, title: 'Zona de servicio', value: 'Presencial en Sevilla · asistencia remota desde cualquier lugar' },
+  { icon: Clock, title: 'Tiempo de respuesta', value: 'En menos de 24 horas' },
   { icon: MessageSquare, title: 'Modalidad', value: 'Presencial o asistencia remota' },
 ]
 

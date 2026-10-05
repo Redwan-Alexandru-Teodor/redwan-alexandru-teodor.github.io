@@ -3,7 +3,7 @@ import type { ProyectoData } from '../types'
 const proyecto: ProyectoData = {
   id: 'pagina-web-servicios',
   titulo: 'Portafolio de Servicios IT',
-  subtitulo: 'Web profesional de servicios IT, redes y sistemas en Sevilla y alrededores.',
+  subtitulo: 'Web profesional de servicios IT, redes y sistemas en Sevilla.',
 
   portada: '/proyectos/pagina-web-servicios/Portada.png',
 

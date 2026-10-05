@@ -87,7 +87,7 @@ export function SiteFooter() {
                 </svg>
                 <span>LinkedIn</span>
               </a>
-              <span className="text-[11px] opacity-60">Sevilla y alrededores</span>
+              <span className="text-[11px] opacity-60">Sevilla</span>
             </div>
 
           </div>
@@ -132,7 +132,7 @@ export function SiteFooter() {
               <div className="space-y-1">
                 <p className="font-semibold text-foreground text-base">1. Datos Identificativos y Titularidad (LSSI-CE)</p>
                 <p>
-                  En cumplimiento del artículo 10 de la Ley 34/2002 (LSSI-CE), se informa que este sitio web es operado por <strong>Redwan Alexandru Teodor</strong>, profesional especializado en sistemas y redes, con residencia y ámbito de actuación principal en <strong>Sevilla y alrededores</strong>. Puedes establecer comunicación directa mediante el formulario de contacto habilitado en la web.
+                  En cumplimiento del artículo 10 de la Ley 34/2002 (LSSI-CE), se informa que este sitio web es operado por <strong>Redwan Alexandru Teodor</strong>, profesional especializado en sistemas y redes, con residencia y ámbito de actuación principal en <strong>Sevilla</strong>. Puedes establecer comunicación directa mediante el formulario de contacto habilitado en la web.
                 </p>
               </div>
 

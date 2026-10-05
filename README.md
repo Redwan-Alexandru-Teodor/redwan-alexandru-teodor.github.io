@@ -182,7 +182,7 @@ El repositorio es **público**, así que no hay datos de contacto escritos en el
 | :--- | :--- |
 | Correo de contacto | Variable de repositorio **`CONTACT_EMAIL`** (GitHub → Settings → Secrets and variables → Actions → *Variables*). El workflow la pasa como `NEXT_PUBLIC_CONTACT_EMAIL`. |
 | Correo en local | Archivo `.env.local` con `NEXT_PUBLIC_CONTACT_EMAIL=tu@correo.com` (ya ignorado por Git). |
-| Ubicación | Solo «Sevilla y alrededores». |
+| Ubicación | Solo «Sevilla». |
 | Disponibilidad | `disponible` en `lib/site-config.ts`. |
 
 > ℹ️ Si la variable no existe, el formulario y el botón «Enviar correo» se desactivan y muestran un aviso.

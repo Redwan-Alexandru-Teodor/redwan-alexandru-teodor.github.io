@@ -8,7 +8,7 @@ const highlights: { icon: LucideIcon; label: string }[] = [
 ]
 
 const facts: { icon: LucideIcon; title: string; value: string }[] = [
-  { icon: MapPin, title: 'Ubicación', value: 'Sevilla y alrededores' },
+  { icon: MapPin, title: 'Ubicación', value: 'Sevilla' },
   { icon: Euro, title: 'Coste', value: 'Sin coste para ti' },
 ]
 

@@ -789,7 +789,7 @@ export function ContactForm() {
                 <p className="text-sm leading-relaxed text-muted-foreground">
                   Se ha abierto tu aplicación de correo con la solicitud ya redactada. El mensaje
                   <strong className="text-foreground"> no se envía solo</strong>: revisa los datos y
-                  pulsa «Enviar» en tu correo. Te responderé en menos de 24 horas laborables.
+                  pulsa «Enviar» en tu correo. Te responderé en menos de 24 horas.
                 </p>
                 <p className="text-sm leading-relaxed text-muted-foreground">
                   Si no se abrió ninguna aplicación, puedes copiar el mensaje y pegarlo en tu correo.

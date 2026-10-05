@@ -9,7 +9,7 @@ const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
 export const metadata: Metadata = {
   title: 'Redwan Alexandru Teodor | Técnico en Sistemas y Redes en Sevilla',
   description:
-    'Soporte informático, mantenimiento de equipos, consultoría TI, copias de seguridad y recuperación de datos en Sevilla y alrededores.',
+    'Soporte informático, mantenimiento de equipos, consultoría TI, copias de seguridad y recuperación de datos en Sevilla.',
   applicationName: 'Redwan Alexandru Teodor - Servicios IT',
   authors: [{ name: 'Redwan Alexandru Teodor' }],
   keywords: ['soporte informático Sevilla', 'técnico en sistemas y redes', 'mantenimiento de equipos', 'consultoría TI', 'copias de seguridad', 'recuperación de datos', 'redes locales', 'Sevilla'],
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Redwan Alexandru Teodor | Técnico en Sistemas y Redes en Sevilla',
     description:
-      'Soporte informático, mantenimiento de equipos, consultoría TI, copias de seguridad y recuperación de datos en Sevilla y alrededores.',
+      'Soporte informático, mantenimiento de equipos, consultoría TI, copias de seguridad y recuperación de datos en Sevilla.',
     url: `${siteUrl}/`,
     siteName: 'Redwan Alexandru Teodor - Servicios IT',
     images: [
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Redwan Alexandru Teodor | Técnico en Sistemas y Redes en Sevilla',
     description:
-      'Soporte informático, mantenimiento de equipos, consultoría TI, copias de seguridad y recuperación de datos en Sevilla y alrededores.',
+      'Soporte informático, mantenimiento de equipos, consultoría TI, copias de seguridad y recuperación de datos en Sevilla.',
     images: [`${siteUrl}/og_image.png`],
   },
 }
@@ -70,7 +70,7 @@ const jsonLd = {
       '@id': `${siteUrl}/#servicio`,
       name: 'Redwan Alexandru Teodor - Servicios IT',
       description:
-        'Soporte informático, mantenimiento de equipos, consultoría TI, copias de seguridad y recuperación de datos en Sevilla y alrededores.',
+        'Soporte informático, mantenimiento de equipos, consultoría TI, copias de seguridad y recuperación de datos en Sevilla.',
       url: `${siteUrl}/`,
       image: `${siteUrl}/og_image.png`,
       areaServed: { '@type': 'City', name: 'Sevilla' },

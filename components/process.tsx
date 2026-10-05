@@ -11,7 +11,7 @@ const pasos: { icon: LucideIcon; titulo: string; texto: string }[] = [
     icon: CalendarCheck,
     titulo: '2. Te respondo con una propuesta',
     texto:
-      'En menos de 24 horas laborables recibes una propuesta sin compromiso y acordamos si es presencial o por asistencia remota.',
+      'En menos de 24 horas recibes una propuesta sin compromiso y acordamos si es presencial o por asistencia remota.',
   },
   {
     icon: Handshake,

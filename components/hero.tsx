@@ -104,7 +104,7 @@ export function Hero() {
             </li>
             <li className="flex items-center gap-2">
               <Clock className="size-4 text-primary" aria-hidden="true" />
-              Respuesta en menos de 24 h
+              Respuesta en menos de 24 horas
             </li>
             <li className="flex items-center gap-2">
               <Wrench className="size-4 text-primary" aria-hidden="true" />
