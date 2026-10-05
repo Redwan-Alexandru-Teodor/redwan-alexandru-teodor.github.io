@@ -40,9 +40,3 @@ export const googleVerification = (() => {
   return /^[\w-]+$/.test(codigo) ? codigo : ''
 })()
 
-/**
- * Código de GoatCounter (estadísticas sin cookies). Es el nombre de tu panel:
- * si tu panel es https://redwan.goatcounter.com, el código es `redwan`.
- * Variable de repositorio `GOATCOUNTER_CODE`. Vacío = no se carga ningún script.
- */
-export const goatCounterCode = (process.env.NEXT_PUBLIC_GOATCOUNTER_CODE || '').trim()

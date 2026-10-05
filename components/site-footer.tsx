@@ -159,7 +159,17 @@ export function SiteFooter() {
               <div className="space-y-1">
                 <p className="font-semibold text-foreground text-base">4. Política de Cookies y Enlaces Externos</p>
                 <p>
-                  Este sitio web no utiliza cookies ni perfiles de usuario. Para conocer cuántas personas lo visitan emplea GoatCounter, un contador de visitas que no usa cookies, no guarda tu dirección IP y no te identifica ni te sigue entre webs (solo cifras agregadas, como páginas vistas y país). Únicamente puede emplear recursos técnicos esenciales para garantizar el correcto renderizado visual. Asimismo, la web incluye un enlace externo verificado al perfil profesional de LinkedIn del titular.
+                  Este sitio web no utiliza cookies ni perfiles de usuario. Solo guarda en el almacenamiento local de tu navegador tu preferencia de modo claro u oscuro, que no se envía a ningún servidor. Asimismo, la web incluye un enlace externo verificado al perfil profesional de LinkedIn del titular.
+                </p>
+              </div>
+
+              <div className="space-y-1">
+                <p className="font-semibold text-foreground text-base">5. Proveedores y Datos Técnicos de Acceso</p>
+                <p>
+                  Esta web está alojada en GitHub Pages (GitHub, Inc.), que trata datos técnicos de acceso, como la dirección IP, según su política de privacidad.
+                </p>
+                <p>
+                  Puedes ejercer tus derechos de acceso, rectificación, supresión, oposición y limitación, en la medida en que puedan referirse a ti, y presentar una reclamación ante la Agencia Española de Protección de Datos (www.aepd.es).
                 </p>
               </div>
 
