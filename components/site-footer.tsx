@@ -67,10 +67,6 @@ export function SiteFooter() {
               >
                 Documentación del proyecto (PDF)
               </button>
-              <a href="#contacto" className="text-xs hover:underline transition-colors opacity-90 hover:opacity-100 font-medium">
-                Solicitar colaboración
-              </a>
-              <span className="text-[11px] opacity-60">Colaboración técnica gratuita</span>
             </div>
 
             {/* Columna 3 */}
