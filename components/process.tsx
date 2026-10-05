@@ -1,4 +1,4 @@
-import { CalendarCheck, Handshake, Send, type LucideIcon } from 'lucide-react'
+import { CalendarCheck, Check, Handshake, Send, type LucideIcon } from 'lucide-react'
 
 const pasos: { icon: LucideIcon; titulo: string; texto: string }[] = [
   {
@@ -46,6 +46,26 @@ export function Process() {
             </li>
           ))}
         </ol>
+
+        {/* Por qué es gratis: explicado como un intercambio, no como una oferta barata */}
+        <div className="mx-auto mt-12 max-w-4xl rounded-2xl bg-ink p-6 text-ink-foreground sm:p-8">
+          <h3 className="text-xl font-semibold tracking-tight">¿Por qué es gratis?</h3>
+          <p className="mt-3 text-pretty leading-relaxed text-ink-foreground/80">
+            Estoy construyendo mi portafolio profesional. Tú consigues resolver tu problema técnico
+            sin pagar nada; yo consigo un caso real que enseñar. Es un intercambio claro entre los
+            dos, sin letra pequeña.
+          </p>
+          <ul className="mt-5 grid gap-3 text-sm sm:grid-cols-3">
+            {['Sin pagos ni facturas', 'Sin permanencia ni contrato comercial', 'Condiciones claras antes de enviar'].map(t => (
+              <li key={t} className="flex items-center gap-2">
+                <span className="flex size-5 shrink-0 items-center justify-center rounded-full bg-primary text-primary-foreground">
+                  <Check className="size-3" aria-hidden="true" />
+                </span>
+                {t}
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
     </section>
   )

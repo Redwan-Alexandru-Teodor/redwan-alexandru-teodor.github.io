@@ -31,7 +31,7 @@ const servicios: Servicio[] = [
     id: 'virtualizacion',
     label: 'Virtualización y Servidores',
     description:
-      'Despliegue y administración básica de servidores (Windows Server y Linux), creación de recursos compartidos (Active Directory/Samba) y gestión de máquinas virtuales.',
+      'Despliegue y administración básica de servidores (Windows y Linux), recursos compartidos en red y gestión de máquinas virtuales.',
     tiempo: '1–3 días',
   },
   {
@@ -73,12 +73,11 @@ const servicios: Servicio[] = [
 
 export default servicios
 
-/** Tecnologías agrupadas por área (todas salen de la descripción de los servicios y del proyecto). */
+/** Entornos y herramientas, tomados del CV (formación, prácticas y experiencia en empresa). */
 export const tecnologias: { area: string; items: string[] }[] = [
-  { area: 'Sistemas', items: ['Windows', 'Linux', 'Windows Server', 'Active Directory', 'Samba', 'Máquinas virtuales'] },
-  { area: 'Redes', items: ['Cableado RJ45', 'Switches y routers', 'Wi-Fi', 'DHCP', 'DNS', 'Direccionamiento IP'] },
-  { area: 'Datos', items: ['Copias en NAS', 'Discos externos', 'Almacenamiento en la nube', 'Recuperación HDD/SSD/USB'] },
-  { area: 'Seguridad', items: ['Antimalware', 'Cortafuegos', 'Permisos de usuario'] },
-  { area: 'Soporte remoto', items: ['AnyDesk', 'TeamViewer'] },
-  { area: 'Desarrollo web', items: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'GitHub Actions'] },
+  { area: 'Sistemas y servidores', items: ['Windows', 'Linux', 'Servidores Windows y Linux', 'Virtualización'] },
+  { area: 'Redes', items: ['Redes LAN cableadas e inalámbricas', 'Cableado', 'Conexión a internet', 'Acceso remoto'] },
+  { area: 'Hardware y soporte', items: ['Montaje y diagnóstico de equipos', 'Mantenimiento preventivo y correctivo', 'Periféricos', 'Inventario de recursos'] },
+  { area: 'Software de gestión', items: ['Factusol', 'Facturaplus Flex', 'Migración de ERP', 'Microsoft Office'] },
+  { area: 'Desarrollo web', items: ['React', 'Next.js', 'TypeScript', 'Tailwind CSS', 'GitHub Pages'] },
 ]

@@ -9,7 +9,7 @@ const highlights: { icon: LucideIcon; label: string }[] = [
 
 const facts: { icon: LucideIcon; title: string; value: string }[] = [
   { icon: MapPin, title: 'Ubicación', value: 'Sevilla y alrededores' },
-  { icon: Euro, title: 'Tarifas', value: '100% Gratuito' },
+  { icon: Euro, title: 'Coste', value: 'Sin coste para ti' },
 ]
 
 export function About() {

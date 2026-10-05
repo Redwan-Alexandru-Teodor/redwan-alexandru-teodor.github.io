@@ -121,7 +121,7 @@ El texto completo de estas condiciones, junto con el aviso legal, la política d
 │   └── not-found.tsx              # Página 404
 ├── components/
 │   ├── site-header.tsx            # Menú sticky, sección activa, CTA móvil
-│   ├── hero.tsx                   # Presentación, disponibilidad y cifras
+│   ├── hero.tsx                   # Presentación, disponibilidad y ventajas
 │   ├── about.tsx · services.tsx   # Sobre mí · servicios + índice de tecnologías
 │   ├── process.tsx                # «Cómo funciona» en 3 pasos
 │   ├── proyectos.tsx              # Galería, visor con zoom y renderizador Markdown
@@ -131,7 +131,7 @@ El texto completo de estas condiciones, junto con el aviso legal, la política d
 │   ├── reveal.tsx · back-to-top.tsx    # Animación de entrada · volver arriba
 │   └── ui/                        # Primitivos reutilizables
 ├── data/
-│   ├── servicios.ts               # Servicios y tecnologías (fuente única)
+│   ├── servicios.ts               # Servicios y entornos de trabajo (fuente única)
 │   └── proyectos/                 # Un directorio por proyecto
 ├── lib/
 │   ├── site-config.ts             # basePath, siteUrl, correo de contacto, disponibilidad
@@ -151,8 +151,8 @@ El texto completo de estas condiciones, junto con el aviso legal, la política d
 ```text
 deploy.yml ──(NEXT_PUBLIC_BASE_PATH, NEXT_PUBLIC_CONTACT_EMAIL)──▶ lib/site-config.ts
 site-config ──▶ layout.tsx · sitemap.ts · robots.ts · todos los asset()
-data/servicios.ts ──▶ services.tsx · hero.tsx (contador) · layout.tsx (JSON-LD)
-data/proyectos ──▶ proyectos.tsx · hero.tsx (contador) · sitemap.ts (imágenes)
+data/servicios.ts ──▶ services.tsx · layout.tsx (JSON-LD)
+data/proyectos ──▶ proyectos.tsx · sitemap.ts (imágenes)
 lib/mail.ts ──▶ mail-modal.tsx · contact-form.tsx
 lib/use-scroll-lock.ts ──▶ mail-modal · contact-form · site-footer · proyectos
 ```

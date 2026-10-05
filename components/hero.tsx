@@ -2,11 +2,9 @@
 
 import React, { useState } from 'react'
 import Image from 'next/image'
-import { Mail, Send, ShieldCheck } from 'lucide-react'
+import { Clock, Mail, Send, ShieldCheck, Wallet, Wrench } from 'lucide-react'
 import { buttonVariants } from '@/components/ui/button'
 import { asset, disponible } from '@/lib/site-config'
-import servicios from '@/data/servicios'
-import proyectos from '@/data/proyectos'
 import { cn } from '@/lib/utils'
 
 import { MailModal } from '@/components/mail-modal'
@@ -98,21 +96,21 @@ export function Hero() {
             </button>
           </div>
 
-          {/* Cifras rápidas (se calculan solas a partir de los datos) */}
-          <dl className="mt-12 grid w-full max-w-xl grid-cols-3 divide-x divide-white/10 border-t border-white/10 pt-6 text-center">
-            <div className="px-2">
-              <dt className="text-xs text-ink-foreground/60">Servicios</dt>
-              <dd className="mt-1 text-2xl font-semibold">{servicios.length}</dd>
-            </div>
-            <div className="px-2">
-              <dt className="text-xs text-ink-foreground/60">Proyectos documentados</dt>
-              <dd className="mt-1 text-2xl font-semibold">{proyectos.length}</dd>
-            </div>
-            <div className="px-2">
-              <dt className="text-xs text-ink-foreground/60">Zona</dt>
-              <dd className="mt-1 text-2xl font-semibold">Sevilla</dd>
-            </div>
-          </dl>
+          {/* Ventajas, centradas y sin cifras */}
+          <ul className="mt-12 flex w-full max-w-2xl flex-col items-center justify-center gap-x-8 gap-y-3 border-t border-white/10 pt-6 text-sm text-ink-foreground/80 sm:flex-row">
+            <li className="flex items-center gap-2">
+              <Wallet className="size-4 text-primary" aria-hidden="true" />
+              Sin coste para ti
+            </li>
+            <li className="flex items-center gap-2">
+              <Clock className="size-4 text-primary" aria-hidden="true" />
+              Respuesta en menos de 24 h
+            </li>
+            <li className="flex items-center gap-2">
+              <Wrench className="size-4 text-primary" aria-hidden="true" />
+              Presencial o remoto
+            </li>
+          </ul>
         </div>
       </section>
 

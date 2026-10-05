@@ -98,16 +98,16 @@ export function Services() {
           })}
         </ul>
 
-        {/* Índice de tecnologías */}
-        <div className="mt-16" aria-labelledby="stack-title">
-          <h3 id="stack-title" className="text-center text-lg font-semibold tracking-tight">
-            Tecnologías con las que trabajo
+        {/* Índice de tecnologías: una sola tarjeta, filas alineadas */}
+        <div className="mx-auto mt-16 max-w-4xl">
+          <h3 id="stack-title" className="text-center text-xl font-semibold tracking-tight">
+            Entornos y herramientas con los que trabajo
           </h3>
-          <dl className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <dl className="mt-8 divide-y rounded-xl border bg-card shadow-sm" aria-labelledby="stack-title">
             {tecnologias.map(({ area, items }) => (
-              <div key={area} className="rounded-xl border bg-card p-5 shadow-sm">
-                <dt className="text-xs font-semibold uppercase tracking-wider text-primary">{area}</dt>
-                <dd className="mt-3 flex flex-wrap gap-2">
+              <div key={area} className="grid gap-3 px-5 py-4 sm:grid-cols-[11rem_1fr] sm:items-start sm:gap-6">
+                <dt className="text-xs font-semibold uppercase tracking-wider text-primary sm:pt-1.5">{area}</dt>
+                <dd className="flex flex-wrap gap-2">
                   {items.map(item => (
                     <span key={item} className="rounded-md border bg-secondary px-2.5 py-1 text-xs font-medium text-secondary-foreground">
                       {item}

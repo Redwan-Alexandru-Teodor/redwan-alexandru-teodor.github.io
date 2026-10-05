@@ -39,8 +39,9 @@ export function Contact() {
 
         <div className="lg:col-span-3">
           <p className="mb-5 rounded-lg border border-primary/20 bg-primary/5 px-4 py-3 text-sm leading-relaxed text-foreground">
-            <strong>Servicio 100% gratuito.</strong> A cambio, autorizas que el trabajo realizado pueda
-            mencionarse en mi portafolio. Antes de enviar podrás leer las condiciones completas.
+            <strong>Sin coste y sin compromiso.</strong> Es una colaboración: resuelvo tu caso y, con
+            tu autorización, lo menciono en mi portafolio. Podrás leer las condiciones completas
+            antes de enviar.
           </p>
           <ContactForm />
         </div>
