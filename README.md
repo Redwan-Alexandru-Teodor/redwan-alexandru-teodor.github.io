@@ -57,6 +57,8 @@ El diseño es minimalista, con foco en la experiencia de usuario, el rendimiento
 * ♿ **Accesibilidad:** `role="dialog"`, `aria-modal`, `aria-labelledby` y etiquetas en los botones de icono.
 * 🛡️ **Correo fuera del código:** la dirección de contacto no está escrita en el repositorio; se inyecta en el build desde una variable de GitHub Actions.
 * 🧭 **Navegación viva:** el menú resalta la sección visible; en móvil el botón de contacto está siempre a la vista.
+* 🌗 **Modo oscuro/claro:** toggle en el header que guarda la preferencia en `localStorage` y la aplica sin parpadeo al cargar.
+* 🔗 **LinkedIn en el header:** acceso directo al perfil profesional desde la barra de navegación, tanto en escritorio como en móvil.
 * ✨ **Animaciones de entrada** que respetan «reducir movimiento» y botón de volver arriba.
 * 🔍 **SEO:** metadatos Open Graph y Twitter Card, JSON-LD (Schema.org con servicios y precio «Gratuito»), `robots.txt` y `sitemap.xml` generados en el build con la URL real.
 * 📱 **Responsive:** adaptado a móviles, tablets y escritorio.
@@ -120,7 +122,7 @@ El texto completo de estas condiciones, junto con el aviso legal, la política d
 │   ├── globals.css                # Tokens de color y estilos globales
 │   └── not-found.tsx              # Página 404
 ├── components/
-│   ├── site-header.tsx            # Menú sticky, sección activa, CTA móvil
+│   ├── site-header.tsx            # Menú sticky, sección activa, CTA móvil, LinkedIn y toggle dark/light
 │   ├── hero.tsx                   # Presentación, disponibilidad y ventajas
 │   ├── about.tsx · services.tsx   # Sobre mí · servicios + índice de tecnologías
 │   ├── process.tsx                # «Cómo funciona» en 3 pasos
@@ -141,8 +143,9 @@ El texto completo de estas condiciones, junto con el aviso legal, la política d
 │   ├── use-active-section.ts      # Sección visible (resalta el menú)
 │   └── utils.ts                   # cn()
 └── public/                        # Activos estáticos servidos tal cual
-    ├── .nojekyll · icon.svg · og_image.png · Documentacion.pdf
-    ├── imagenes/                    # Foto de perfil
+    ├── .nojekyll · icon.svg · og_image.png
+    ├── images/                    # Foto de perfil (perfil.jpg)
+    ├── docs/                      # Documentación del proyecto (Documentacion.pdf)
     └── proyectos/<slug>/          # Imágenes de cada proyecto
 ```
 

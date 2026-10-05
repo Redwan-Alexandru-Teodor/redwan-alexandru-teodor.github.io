@@ -49,8 +49,11 @@ export const metadata: Metadata = {
 }
 
 export const viewport: Viewport = {
-  colorScheme: 'light',
-  themeColor: '#131b26', // = --ink (oklch(0.22 0.025 255)) en hexadecimal
+  colorScheme: 'light dark',
+  themeColor: [
+    { media: '(prefers-color-scheme: light)', color: '#131b26' },
+    { media: '(prefers-color-scheme: dark)',  color: '#0f141e' },
+  ],
 }
 
 const jsonLd = {
@@ -99,8 +102,18 @@ const jsonLd = {
   ],
 }
 
-// JSON-LD serializado de forma segura: se escapa "<" para que ningún valor pueda cerrar la etiqueta <script>
 const jsonLdSeguro = JSON.stringify(jsonLd).replace(/</g, '\\u003c')
+
+// Script anti-flash: aplica .dark antes de que el navegador pinte nada
+const themeScript = `
+(function(){
+  try {
+    var s = localStorage.getItem('theme');
+    var d = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    if (s === 'dark' || (!s && d)) document.documentElement.classList.add('dark');
+  } catch(e) {}
+})();
+`.trim()
 
 export default function RootLayout({
   children,
@@ -108,7 +121,11 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="es" className={inter.variable}>
+    <html lang="es" className={inter.variable} suppressHydrationWarning>
+      <head>
+        {/* Anti-flash: debe ejecutarse antes del primer paint */}
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+      </head>
       <body className="antialiased">
         <script
           type="application/ld+json"

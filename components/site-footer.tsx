@@ -4,8 +4,8 @@ import { useEffect, useState } from 'react'
 import { asset } from '@/lib/site-config'
 import { useScrollLock } from '@/lib/use-scroll-lock'
 
-// Archivo en public/Documentacion.pdf
-const DOCS_PDF_PATH = asset('/Documentacion.pdf')
+// Archivo en public/docs/Documentacion.pdf
+const DOCS_PDF_PATH = asset('/docs/Documentacion.pdf')
 
 type ModalType = 'legal' | 'docs' | null
 
