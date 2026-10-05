@@ -3,9 +3,26 @@
 import React, { useState, useEffect } from 'react'
 import { buttonVariants } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
-import { Linkedin, Menu, Moon, Sun, X } from 'lucide-react'
+import { Menu, Moon, Sun, X } from 'lucide-react'
 import { MailModal } from '@/components/mail-modal'
 import { useActiveSection } from '@/lib/use-active-section'
+// Icono de LinkedIn como SVG inline (lucide-react@1.17.0 no incluye Linkedin)
+function LinkedinIcon({ className }: { className?: string }) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      className={className}
+      aria-hidden="true"
+    >
+      <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+      <rect x="2" y="9" width="4" height="12" />
+      <circle cx="4" cy="4" r="2" />
+    </svg>
+  )
+}
+
 
 const ENLACES = [
   { href: 'inicio', label: 'Inicio' },
@@ -97,7 +114,7 @@ export function SiteHeader() {
               aria-label="Perfil de LinkedIn"
               className="inline-flex items-center justify-center rounded-lg p-2 text-ink-foreground/75 hover:bg-white/10 hover:text-ink-foreground transition-colors"
             >
-              <Linkedin className="size-5" aria-hidden="true" />
+              <LinkedinIcon className="size-5" aria-hidden="true" />
             </a>
 
             {/* Toggle dark/light */}
@@ -121,7 +138,7 @@ export function SiteHeader() {
               aria-label="Perfil de LinkedIn"
               className="inline-flex items-center justify-center rounded-lg p-2 text-ink-foreground/75 hover:bg-white/10 hover:text-ink-foreground transition-colors"
             >
-              <Linkedin className="size-5" aria-hidden="true" />
+              <LinkedinIcon className="size-5" aria-hidden="true" />
             </a>
 
             {/* Toggle dark/light móvil */}
@@ -178,7 +195,7 @@ export function SiteHeader() {
                   rel="noopener noreferrer"
                   className="flex items-center gap-2 py-2 transition-colors hover:text-primary"
                 >
-                  <Linkedin className="size-4" aria-hidden="true" />
+                  <LinkedinIcon className="size-4" aria-hidden="true" />
                   LinkedIn
                 </a>
               </li>
