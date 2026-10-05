@@ -25,9 +25,9 @@ export function VisitCounter({ className = '' }: { className?: string }) {
   if (!total) return null
 
   return (
-    <p className={`inline-flex items-center gap-1.5 text-xs opacity-70 ${className}`} title="Visitas totales">
+    <p className={`inline-flex items-center gap-1.5 whitespace-nowrap text-xs opacity-70 ${className}`} title="Visitas totales" aria-label={`${total} visitas totales`}>
       <Eye className="size-3.5" aria-hidden="true" />
-      <span><span className="font-semibold tabular-nums">{total}</span> visitas</span>
+      <span><span className="font-semibold tabular-nums">{total}</span><span className="hidden sm:inline"> visitas</span></span>
     </p>
   )
 }

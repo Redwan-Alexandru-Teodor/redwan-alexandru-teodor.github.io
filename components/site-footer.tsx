@@ -3,7 +3,6 @@
 import { useEffect, useState } from 'react'
 import { asset } from '@/lib/site-config'
 import { useScrollLock } from '@/lib/use-scroll-lock'
-import { VisitCounter } from '@/components/visit-counter'
 
 // Archivo en public/docs/Documentacion.pdf
 const DOCS_PDF_PATH = asset('/docs/Documentacion.pdf')
@@ -49,7 +48,6 @@ export function SiteFooter() {
               <p className="font-medium text-ink-foreground">Redwan Alexandru Teodor</p>
               <p className="text-xs opacity-80">Técnico en Sistemas y Redes · Sevilla</p>
               <p className="text-xs opacity-60 mt-1">© {new Date().getFullYear()} Todos los derechos reservados</p>
-              <VisitCounter className="mt-1" />
             </div>
 
             {/* Columna 2 */}

@@ -7,6 +7,7 @@ import { Menu, Moon, Sun, X } from 'lucide-react'
 import { MailModal } from '@/components/mail-modal'
 import { useActiveSection } from '@/lib/use-active-section'
 import { useTheme } from '@/lib/use-theme'
+import { VisitCounter } from '@/components/visit-counter'
 // Icono de LinkedIn como SVG inline (lucide-react@1.17.0 no incluye Linkedin)
 function LinkedinIcon({ className }: { className?: string }) {
   return (
@@ -65,6 +66,9 @@ export function SiteHeader() {
     <>
       <header className="sticky top-0 z-50 border-b border-white/10 bg-ink/90 text-ink-foreground backdrop-blur">
         <div className="mx-auto flex h-16 max-w-6xl items-center justify-end gap-2 px-4 sm:px-6">
+
+          {/* Contador de visitas: a la izquierda del todo */}
+          <VisitCounter className="mr-auto text-ink-foreground" />
 
           <nav aria-label="Navegación principal" className="hidden items-center gap-6 md:flex">
             <ul className="flex items-center gap-6 text-sm text-ink-foreground/75">

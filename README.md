@@ -58,7 +58,7 @@ El diseño es minimalista, con foco en la experiencia de usuario, el rendimiento
 * 🛡️ **Correo fuera del código:** la dirección de contacto no está escrita en el repositorio; se inyecta en el build desde una variable de GitHub Actions.
 * 🧭 **Navegación viva:** el menú resalta la sección visible; en móvil el botón de contacto está siempre a la vista.
 * 🌗 **Modo oscuro/claro:** toggle en el header (`lib/use-theme.ts`, una única fuente de verdad para escritorio y móvil) que guarda la preferencia en `localStorage`, sigue el tema del sistema si no se ha elegido otro y se aplica sin parpadeo al cargar. Las cajas oscuras y los modales llevan borde azul en modo oscuro.
-* 📊 **Estadísticas sin cookies:** [GoatCounter](https://www.goatcounter.com) cuenta las visitas sin cookies ni perfiles, y el pie de página muestra un contador discreto («👁 1.234 visitas»). Si no hay código configurado, no se carga nada.
+* 📊 **Estadísticas sin cookies:** [GoatCounter](https://www.goatcounter.com) cuenta las visitas sin cookies ni perfiles, y el header muestra a la izquierda un contador discreto («👁 1.234 visitas»; en móvil solo el número). Si no hay código configurado, no se carga nada.
 * 🔎 **Google Search Console:** verificación por etiqueta HTML inyectada desde una variable; el `sitemap.xml` se genera solo en el build.
 * 🔗 **LinkedIn en el header:** acceso directo al perfil profesional desde la barra de navegación, tanto en escritorio como en móvil.
 * ✨ **Animaciones de entrada** que respetan «reducir movimiento» y botón de volver arriba.
@@ -132,7 +132,7 @@ El texto completo de estas condiciones, junto con el aviso legal, la política d
 │   ├── contact.tsx · contact-form.tsx  # Sección de contacto y formulario
 │   ├── mail-modal.tsx             # Confirmación del botón «Enviar correo»
 │   ├── site-footer.tsx            # Pie, aviso legal y visor del PDF
-│   ├── visit-counter.tsx          # Contador de visitas (GoatCounter) en el pie
+│   ├── visit-counter.tsx          # Contador de visitas (GoatCounter) en el header
 │   ├── reveal.tsx · back-to-top.tsx    # Animación de entrada · volver arriba
 │   └── ui/                        # Primitivos reutilizables
 ├── data/
@@ -165,7 +165,7 @@ Sirven tanto *Variables* como *Secrets*, siempre a nivel de **repositorio** (no 
 
 **Search Console:** añade la propiedad *Prefijo de URL* con la dirección de la web, verifica con *Etiqueta HTML* (el valor va en `GOOGLE_SITE_VERIFICATION`) y, tras desplegar, pulsa *Verificar* y envía `sitemap.xml` en el apartado *Sitemaps*.
 
-**GoatCounter:** crea la cuenta, guarda el código en `GOATCOUNTER_CODE` y, para que se vea el contador de visitas en el pie, activa en GoatCounter *Settings → «Allow adding visitor counts on your website»*.
+**GoatCounter:** crea la cuenta, guarda el código en `GOATCOUNTER_CODE` y, para que se vea el contador de visitas en el header, activa en GoatCounter *Settings → «Allow adding visitor counts on your website»*.
 
 **Aviso legal:** el apartado 4 del aviso (`components/site-footer.tsx`) menciona GoatCounter. Si dejas de usarlo, borra la variable `GOATCOUNTER_CODE` y vuelve a dejar ese párrafo como estaba.
 
