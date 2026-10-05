@@ -37,7 +37,7 @@ El diseño es minimalista, con foco en la experiencia de usuario, el rendimiento
 ## 🌐 Demo
 
 - **Sitio en producción:** [redwan-alexandru-teodor.github.io](https://redwan-alexandru-teodor.github.io/)
-- **Repositorio:** [github.com/Redwan-Alexandru-Teodor/inicio](https://github.com/Redwan-Alexandru-Teodor/inicio)
+- **Repositorio:** [github.com/Redwan-Alexandru-Teodor/inicio](https://github.com/Redwan-Alexandru-Teodor/redwan-alexandru-teodor.github.io)
 
 ---
 
