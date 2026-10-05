@@ -32,7 +32,13 @@ export const disponible = true
  * Variable de repositorio `GOOGLE_SITE_VERIFICATION`: solo el valor de content="...".
  * Vacío = no se añade la etiqueta.
  */
-export const googleVerification = (process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION || '').trim()
+export const googleVerification = (() => {
+  const bruto = (process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION || '').trim()
+  // Admite el código solo, la etiqueta <meta> completa o "google-site-verification=<código>"
+  const dentroDeMeta = bruto.match(/content\s*=\s*["']([^"']+)["']/i)
+  const codigo = dentroDeMeta ? dentroDeMeta[1] : bruto.replace(/^google-site-verification=/i, '')
+  return /^[\w-]+$/.test(codigo) ? codigo : ''
+})()
 
 /**
  * Código de GoatCounter (estadísticas sin cookies). Es el nombre de tu panel:
