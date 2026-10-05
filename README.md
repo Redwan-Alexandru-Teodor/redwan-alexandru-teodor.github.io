@@ -36,7 +36,7 @@ El diseño es minimalista, con foco en la experiencia de usuario, el rendimiento
 
 ## 🌐 Demo
 
-- **Sitio en producción:** [redwan-alexandru-teodor.github.io](https://redwan-alexandru-teodor.github.io/) *(si el repositorio aún se llama `inicio`: `/inicio/`)*
+- **Sitio en producción:** [redwan-alexandru-teodor.github.io](https://redwan-alexandru-teodor.github.io/)
 - **Repositorio:** [github.com/Redwan-Alexandru-Teodor/inicio](https://github.com/Redwan-Alexandru-Teodor/inicio)
 
 ---
@@ -184,13 +184,6 @@ El repositorio es **público**, así que no hay datos de contacto escritos en el
 | Correo en local | Archivo `.env.local` con `NEXT_PUBLIC_CONTACT_EMAIL=tu@correo.com` (ya ignorado por Git). |
 | Ubicación | Solo «Sevilla». |
 | Disponibilidad | `disponible` en `lib/site-config.ts`. |
-
-> ℹ️ Si la variable no existe, el formulario y el botón «Enviar correo» se desactivan y muestran un aviso.
-> Al ser una web estática, el correo acaba en el sitio **publicado** (el navegador lo necesita para abrir `mailto:`), pero no en el código fuente. Para ocultarlo del todo haría falta un servicio de formularios externo.
-
-### URL limpia (sin `/inicio`)
-
-Si renombras el repositorio a **`redwan-alexandru-teodor.github.io`** (todo en minúsculas), el sitio pasa a `https://redwan-alexandru-teodor.github.io/`. No hay que cambiar código: `actions/configure-pages` entrega un `base_path` vacío y el sitemap, el `robots.txt`, el canonical y los metadatos se recalculan solos en el siguiente build.
 
 ---
 
