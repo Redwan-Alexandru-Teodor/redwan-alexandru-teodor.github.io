@@ -142,7 +142,7 @@ El texto completo de estas condiciones, junto con el aviso legal, la política d
 │   └── utils.ts                   # cn()
 └── public/                        # Activos estáticos servidos tal cual
     ├── .nojekyll · icon.svg · og_image.png · Documentacion.pdf
-    ├── images/                    # Foto de perfil
+    ├── imagenes/                    # Foto de perfil
     └── proyectos/<slug>/          # Imágenes de cada proyecto
 ```
 
