@@ -17,7 +17,7 @@ export function VisitCounter({ className = '' }: { className?: string }) {
   useEffect(() => {
     if (!activo) return
     const ctl = new AbortController()
-    fetch(`https://${goatCounterCode}.goatcounter.com/counter/TOTAL.json`, { signal: ctl.signal })
+    fetch(`https://${goatCounterCode}.goatcounter.com/counter/${encodeURIComponent('/')}.json`, { signal: ctl.signal })
       .then(r => (r.ok ? r.json() : Promise.reject(new Error(`GoatCounter respondió ${r.status}`))))
       .then((d: { count?: string }) => {
         if (d.count) setTotal(String(d.count).replace(/\s/g, '.'))
