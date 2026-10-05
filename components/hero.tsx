@@ -26,7 +26,7 @@ export function Hero() {
           {/* Avatar */}
           <div className="rounded-full bg-gradient-to-b from-primary to-primary/30 p-1">
             <Image
-              src={asset('/images/perfil.jpg')}
+              src={asset('/imagenes/perfil.jpg')}
               alt="Retrato de Redwan Alexandru Teodor"
               width={160}
               height={160}
