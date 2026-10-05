@@ -75,9 +75,9 @@ export default servicios
 
 /** Entornos y herramientas, tomados del CV (formación, prácticas y experiencia en empresa). */
 export const tecnologias: { area: string; items: string[] }[] = [
-  { area: 'Sistemas y servidores', items: ['Windows', 'Linux', 'Servidores (Windows/Linux)', 'Virtualización'] },
+  { area: 'Sistemas y servidores', items: ['Windows', 'Linux', 'Servidores (Windows/Linux)', 'Virtualización', 'Docker', 'Proxmox'] },
   { area: 'Redes', items: ['Redes LAN / Inalámbricas', 'Cableado estructurado', 'Conectividad Internet', 'Acceso remoto'] },
   { area: 'Hardware y soporte', items: ['Montaje y diagnóstico', 'Mantenimiento de equipos', 'Periféricos', 'Inventario HW'] },
-  { area: 'Software de gestión', items: ['Factusol', 'Facturaplus Flex', 'Migración de ERP', 'Microsoft Office'] },
-  { area: 'Desarrollo web', items: ['React', 'Next.js', 'TypeScript', 'Tailwind CSS', 'GitHub Pages'] },
+  { area: 'Software de gestión', items: ['Factusol', 'Facturaplus Flex', 'Sage 50', 'Migración de ERP', 'Amazon Seller Central', 'Microsoft Office'] },
+  { area: 'Desarrollo web', items: ['React', 'Next.js', 'TypeScript', 'Tailwind CSS', 'Git & GitHub', 'GitHub Pages', 'GitHub Desktop'] },
 ]
