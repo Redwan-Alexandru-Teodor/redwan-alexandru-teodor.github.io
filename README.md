@@ -57,7 +57,9 @@ El diseño es minimalista, con foco en la experiencia de usuario, el rendimiento
 * ♿ **Accesibilidad:** `role="dialog"`, `aria-modal`, `aria-labelledby` y etiquetas en los botones de icono.
 * 🛡️ **Correo fuera del código:** la dirección de contacto no está escrita en el repositorio; se inyecta en el build desde una variable de GitHub Actions.
 * 🧭 **Navegación viva:** el menú resalta la sección visible; en móvil el botón de contacto está siempre a la vista.
-* 🌗 **Modo oscuro/claro:** toggle en el header que guarda la preferencia en `localStorage` y la aplica sin parpadeo al cargar.
+* 🌗 **Modo oscuro/claro:** toggle en el header (`lib/use-theme.ts`, una única fuente de verdad para escritorio y móvil) que guarda la preferencia en `localStorage`, sigue el tema del sistema si no se ha elegido otro y se aplica sin parpadeo al cargar. Las cajas oscuras y los modales llevan borde azul en modo oscuro.
+* 📊 **Estadísticas sin cookies:** [GoatCounter](https://www.goatcounter.com) cuenta las visitas sin cookies ni perfiles, y el pie de página muestra un contador discreto («👁 1.234 visitas»). Si no hay código configurado, no se carga nada.
+* 🔎 **Google Search Console:** verificación por etiqueta HTML inyectada desde una variable; el `sitemap.xml` se genera solo en el build.
 * 🔗 **LinkedIn en el header:** acceso directo al perfil profesional desde la barra de navegación, tanto en escritorio como en móvil.
 * ✨ **Animaciones de entrada** que respetan «reducir movimiento» y botón de volver arriba.
 * 🔍 **SEO:** metadatos Open Graph y Twitter Card, JSON-LD (Schema.org con servicios y precio «Gratuito»), `robots.txt` y `sitemap.xml` generados en el build con la URL real.
@@ -114,7 +116,7 @@ El texto completo de estas condiciones, junto con el aviso legal, la política d
 
 ```text
 ./
-├── .github/workflows/deploy.yml   # Build + publicación. Inyecta BASE_PATH y CONTACT_EMAIL
+├── .github/workflows/deploy.yml   # Build + publicación. Inyecta BASE_PATH, CONTACT_EMAIL, GOOGLE_SITE_VERIFICATION y GOATCOUNTER_CODE
 ├── app/
 │   ├── layout.tsx                 # Layout raíz: fuente, metadatos, JSON-LD
 │   ├── page.tsx                   # Ensambla las secciones (con animación de entrada)
@@ -130,6 +132,7 @@ El texto completo de estas condiciones, junto con el aviso legal, la política d
 │   ├── contact.tsx · contact-form.tsx  # Sección de contacto y formulario
 │   ├── mail-modal.tsx             # Confirmación del botón «Enviar correo»
 │   ├── site-footer.tsx            # Pie, aviso legal y visor del PDF
+│   ├── visit-counter.tsx          # Contador de visitas (GoatCounter) en el pie
 │   ├── reveal.tsx · back-to-top.tsx    # Animación de entrada · volver arriba
 │   └── ui/                        # Primitivos reutilizables
 ├── data/
@@ -141,6 +144,7 @@ El texto completo de estas condiciones, junto con el aviso legal, la política d
 │   ├── paises.ts                  # Prefijos internacionales y validación telefónica
 │   ├── use-scroll-lock.ts         # Bloqueo de scroll compartido por todos los modales
 │   ├── use-active-section.ts      # Sección visible (resalta el menú)
+│   ├── use-theme.ts               # Tema claro/oscuro compartido por todos los botones
 │   └── utils.ts                   # cn()
 └── public/                        # Activos estáticos servidos tal cual
     ├── .nojekyll · icon.svg · og_image.png
@@ -149,10 +153,26 @@ El texto completo de estas condiciones, junto con el aviso legal, la política d
     └── proyectos/<slug>/          # Imágenes de cada proyecto
 ```
 
+### Variables de GitHub (Settings → Secrets and variables → Actions)
+
+Sirven tanto *Variables* como *Secrets*, siempre a nivel de **repositorio** (no de entorno). Tras crearlas o cambiarlas hay que volver a desplegar (Actions → *Deploy to GitHub Pages* → *Run workflow*).
+
+| Nombre | Para qué | Si falta |
+| :--- | :--- | :--- |
+| `CONTACT_EMAIL` (también se acepta `NEXT_PUBLIC_CONTACT_EMAIL`) | Destinatario de los correos | Botones y formulario de correo desactivados |
+| `GOOGLE_SITE_VERIFICATION` | Verificar la web en Search Console | No se añade la etiqueta |
+| `GOATCOUNTER_CODE` | Estadísticas y contador de visitas | No se carga ningún script ni contador |
+
+**Search Console:** añade la propiedad *Prefijo de URL* con la dirección de la web, verifica con *Etiqueta HTML* (el valor va en `GOOGLE_SITE_VERIFICATION`) y, tras desplegar, pulsa *Verificar* y envía `sitemap.xml` en el apartado *Sitemaps*.
+
+**GoatCounter:** crea la cuenta, guarda el código en `GOATCOUNTER_CODE` y, para que se vea el contador de visitas en el pie, activa en GoatCounter *Settings → «Allow adding visitor counts on your website»*.
+
+**Aviso legal:** el apartado 4 del aviso (`components/site-footer.tsx`) menciona GoatCounter. Si dejas de usarlo, borra la variable `GOATCOUNTER_CODE` y vuelve a dejar ese párrafo como estaba.
+
 ### Flujo de datos
 
 ```text
-deploy.yml ──(NEXT_PUBLIC_BASE_PATH, NEXT_PUBLIC_CONTACT_EMAIL)──▶ lib/site-config.ts
+deploy.yml ──(NEXT_PUBLIC_BASE_PATH, _CONTACT_EMAIL, _GOOGLE_SITE_VERIFICATION, _GOATCOUNTER_CODE)──▶ lib/site-config.ts
 site-config ──▶ layout.tsx · sitemap.ts · robots.ts · todos los asset()
 data/servicios.ts ──▶ services.tsx · layout.tsx (JSON-LD)
 data/proyectos ──▶ proyectos.tsx · sitemap.ts (imágenes)
@@ -184,6 +204,8 @@ El repositorio es **público**, así que no hay datos de contacto escritos en el
 | Qué | Dónde se define |
 | :--- | :--- |
 | Correo de contacto | Variable (o secreto) de repositorio **`CONTACT_EMAIL`** (GitHub → Settings → Secrets and variables → Actions). Debe estar creada antes del despliegue; si no, los botones de correo se desactivan. El workflow la pasa como `NEXT_PUBLIC_CONTACT_EMAIL`. |
+| Verificación de Google Search Console | Variable **`GOOGLE_SITE_VERIFICATION`**: solo el valor de `content="…"` de la etiqueta HTML que da Search Console. Opcional. |
+| Estadísticas y contador de visitas | Variable **`GOATCOUNTER_CODE`**: el nombre de tu panel (si es `redwan.goatcounter.com`, el código es `redwan`). Opcional. |
 | Correo en local | Archivo `.env.local` con `NEXT_PUBLIC_CONTACT_EMAIL=tu@correo.com` (ya ignorado por Git). |
 | Ubicación | Solo «Sevilla». |
 | Disponibilidad | `disponible` en `lib/site-config.ts`. |

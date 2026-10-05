@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react'
 import { asset } from '@/lib/site-config'
 import { useScrollLock } from '@/lib/use-scroll-lock'
+import { VisitCounter } from '@/components/visit-counter'
 
 // Archivo en public/docs/Documentacion.pdf
 const DOCS_PDF_PATH = asset('/docs/Documentacion.pdf')
@@ -48,6 +49,7 @@ export function SiteFooter() {
               <p className="font-medium text-ink-foreground">Redwan Alexandru Teodor</p>
               <p className="text-xs opacity-80">Técnico en Sistemas y Redes · Sevilla</p>
               <p className="text-xs opacity-60 mt-1">© {new Date().getFullYear()} Todos los derechos reservados</p>
+              <VisitCounter className="mt-1" />
             </div>
 
             {/* Columna 2 */}
@@ -159,7 +161,7 @@ export function SiteFooter() {
               <div className="space-y-1">
                 <p className="font-semibold text-foreground text-base">4. Política de Cookies y Enlaces Externos</p>
                 <p>
-                  Este sitio web no utiliza cookies analíticas intrusivas, de rastreo publicitario ni perfiles de usuario. Únicamente puede emplear recursos técnicos esenciales para garantizar el correcto renderizado visual. Asimismo, la web incluye un enlace externo verificado al perfil profesional de LinkedIn del titular.
+                  Este sitio web no utiliza cookies ni perfiles de usuario. Para conocer cuántas personas lo visitan emplea GoatCounter, un contador de visitas que no usa cookies, no guarda tu dirección IP y no te identifica ni te sigue entre webs (solo cifras agregadas, como páginas vistas y país). Únicamente puede emplear recursos técnicos esenciales para garantizar el correcto renderizado visual. Asimismo, la web incluye un enlace externo verificado al perfil profesional de LinkedIn del titular.
                 </p>
               </div>
 

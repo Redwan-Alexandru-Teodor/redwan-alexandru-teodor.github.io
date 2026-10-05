@@ -26,3 +26,17 @@ export const contactEmail = (process.env.NEXT_PUBLIC_CONTACT_EMAIL || '').trim()
 
 /** Muestra u oculta el distintivo "Disponible para nuevos proyectos" del Hero. */
 export const disponible = true
+
+/**
+ * Código de verificación de Google Search Console (etiqueta HTML).
+ * Variable de repositorio `GOOGLE_SITE_VERIFICATION`: solo el valor de content="...".
+ * Vacío = no se añade la etiqueta.
+ */
+export const googleVerification = (process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION || '').trim()
+
+/**
+ * Código de GoatCounter (estadísticas sin cookies). Es el nombre de tu panel:
+ * si tu panel es https://redwan.goatcounter.com, el código es `redwan`.
+ * Variable de repositorio `GOATCOUNTER_CODE`. Vacío = no se carga ningún script.
+ */
+export const goatCounterCode = (process.env.NEXT_PUBLIC_GOATCOUNTER_CODE || '').trim()

@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
-import { basePath, siteUrl } from '@/lib/site-config'
+import { basePath, siteUrl, googleVerification, goatCounterCode } from '@/lib/site-config'
 import servicios from '@/data/servicios'
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
@@ -16,6 +16,7 @@ export const metadata: Metadata = {
   alternates: { canonical: `${siteUrl}/`, languages: { es: `${siteUrl}/` } },
   robots: { index: true, follow: true, googleBot: { index: true, follow: true, 'max-image-preview': 'large' } },
   metadataBase: new URL(`${siteUrl}/`),
+  ...(googleVerification ? { verification: { google: googleVerification } } : {}),
   icons: {
     icon: [
       { url: `${basePath}/icon.svg`, type: 'image/svg+xml' },
@@ -132,6 +133,14 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: jsonLdSeguro }}
         />
         {children}
+        {/* Estadísticas sin cookies ni datos personales (GoatCounter). Solo si hay código configurado. */}
+        {/^[a-z0-9-]+$/i.test(goatCounterCode) && (
+          <script
+            async
+            data-goatcounter={`https://${goatCounterCode}.goatcounter.com/count`}
+            src="https://gc.zgo.at/count.js"
+          />
+        )}
       </body>
     </html>
   )
